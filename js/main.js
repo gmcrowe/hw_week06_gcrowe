@@ -1,3 +1,4 @@
+// Awesome job on this assignment! Your code is clean and effective, and the way you separated out the setValueInHTML() is awesome. Looks great.
 
 $('document').ready(function() {
 
@@ -7,6 +8,7 @@ function setValueInHTML () {
     		"background-color":'white',
     		"color":'#111',
     	});
+	// I usually recommend doing any styling changes in your CSS and using .addClass(); it becomes important to separate it out when your code base gets bigger. "Separation of concerns" is a big programming concept that I'm an advocate of!
 	$("body").removeClass('nyc');
 	$("body").removeClass('austin');
 	$("body").removeClass('sf');
@@ -16,10 +18,14 @@ function setValueInHTML () {
 	$("input:text").attr('placeholder','Enter another city...');
 };
 
+// The fact that you separated this out into another function is awesome! Great way to avoid repitition in your code; also, replacing the input text is great for user experience.
 
 $('#submit-btn').click(function(){ //conditional statements to change background img upon submit
 	if ($('input:text').val().trim().toLowerCase() === 'nyc' || $('input:text').val().trim().toLowerCase() === 'new york city' || $('input:text').val().trim().toLowerCase() === 'new york') {
-		$("body").removeClass("nyc");
+		// I love that you used the .toLowerCase() function to account for differences in capitalization; you'll definitely use this in the real world too
+		// $("body").removeClass("nyc");
+		setValueInHTML();
+		// I think you forgot to switch out the old code with your new setValueInHTML() function for this conditional statement
 		$('body').addClass('nyc');
 		console.log('nyc works.');
 	} else if ($('input:text').val().trim().toLowerCase() === 'la' || $('input:text').val().trim().toLowerCase() === 'lax' || $('input:text').val().trim().toLowerCase() === 'los angeles') {
